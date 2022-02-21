@@ -1,7 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from routes.index import car
 
 app = FastAPI()
 
+origins = [
+    "*",
+    ]
 
-app.include_router(car, prefix="/car")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    )
+
+
+app.include_router(car, prefix="/cars")
