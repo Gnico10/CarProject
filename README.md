@@ -4,11 +4,12 @@
 
 To launch the application you must execute the following commands in docker.
 
-> $ docker-compose build
-> $ docker-compose up
+```
+$ docker-compose build
+$ docker-compose up
+```
 
 ## Backend
----
 For document API http://localhost:8000/docs
 
 ### /cars/
@@ -26,6 +27,5 @@ $ curl -X GET "http://localhost:8000/cars/{car_plate}" -H "accept: application/j
 ---
 
 ## Frontend
----
 The frontend is deployed in http://localhost:3000/
 
