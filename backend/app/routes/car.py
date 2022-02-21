@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from config.db import connection
-from models.index import cars
-from schemas.index import Cars
+from ..config.db import connection
+from ..models.index import cars
+from ..schemas.index import Cars
 
 car = APIRouter()
 

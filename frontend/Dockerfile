@@ -1,12 +1,20 @@
 FROM node:lts AS development
 
+# Variables
 ENV CI=true
 ENV PORT=3000
 
-WORKDIR /code
-COPY package.json /code/package.json
-COPY package-lock.json /code/package-lock.json
-RUN npm ci
-COPY . /code
+WORKDIR /frontend
 
+# Copy source dependecies to container
+COPY package.json /frontend/package.json
+COPY package-lock.json /frontend/package-lock.json
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code to container
+COPY . /frontend
+
+# Run the app
 CMD [ "npm", "start" ]

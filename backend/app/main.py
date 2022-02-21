@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes.index import car
+from .routes.index import car
 
 app = FastAPI()
 
