@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, MetaData
 
 user_name = 'root'
 password = 'root'
-host = 'db' # docker-compose.yml
+host = 'mysql-db' # docker-compose.yml
 port ='3306'
 database_name = 'car_project'
 

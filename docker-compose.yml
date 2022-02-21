@@ -8,19 +8,26 @@ services:
       - "3306:3306" 
     volumes:
       - ./db:/docker-entrypoint-initdb.d:rw
+    healthcheck:
+      # Test if the database is ready to accept connections 
+      test: "/usr/bin/mysql --user=root --password=root --execute \"USE car_project;\""
+      interval: 3s
+      timeout: 10s
+      retries: 5
     networks:
       - default
 
   backend:
     build: backend
-    container_name: fastapi-application
+    container_name: fastapi-backend
     environment:
       PORT: 8000
     ports:
       - '8000:8000'
     restart: "no"
     depends_on:
-      - db 
+      db:
+        condition: service_healthy
     networks:
       - default
 
