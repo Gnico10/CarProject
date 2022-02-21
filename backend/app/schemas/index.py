@@ -1,1 +1,1 @@
-from schemas.cars import Cars
+from .cars import Cars
